@@ -6,205 +6,148 @@
   <title>Publications | Jackson Research Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #2a6354;
-      --secondary-color: #3a7462;
-      --background-color: #f6fbf9;
-      --card-bg-start: #e5f5f2;
-      --card-bg-end: #f6fbf9;
-      --card-hover-shadow: 0 6px 14px rgba(0,0,0,0.08);
-    }
-    
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(135deg, #e5f5f2 0%, #f6fbf9 100%);
-      opacity: 0.12;
+      background: 
+        linear-gradient(120deg, rgba(91, 192, 190, 0.08) 0%, transparent 35%),
+        linear-gradient(240deg, rgba(174, 139, 222, 0.07) 10%, transparent 45%),
+        linear-gradient(0deg, rgba(237, 174, 73, 0.05) 15%, transparent 30%),
+        linear-gradient(180deg, rgba(42, 99, 84, 0.06) 20%, transparent 50%),
+        linear-gradient(300deg, rgba(233, 151, 163, 0.06) 25%, transparent 60%);
       z-index: -1;
     }
-    
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: var(--background-color);
-      color: var(--primary-color);
+      background-color: #f8f9f9;
+      color: #2a6354;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(91, 192, 190, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(174, 139, 222, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 75% 85%, rgba(237, 174, 73, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 35% 70%, rgba(233, 151, 163, 0.06) 0%, transparent 50%);
+      min-height: 100vh;
       padding: 2rem;
+      box-sizing: border-box;
     }
-    
     .container {
       max-width: 1200px;
       margin: 0 auto;
     }
-    
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    
     .logo {
-      height: 50px;
-      margin-bottom: 1rem;
+      height: 70px;
+      filter: drop-shadow(0 4px 6px rgba(42, 99, 84, 0.2));
     }
-    
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      width: 100%;
+      font-size: 2.75rem;
+      color: #2a6354;
+      margin: 2rem 0 1.5rem;
+      background: linear-gradient(90deg, #2a6354, #5bc0be, #2a6354);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% auto;
+      animation: gradient 8s ease infinite;
     }
-    
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 3rem;
-      color: var(--secondary-color);
-      font-style: italic;
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    
     nav {
-      display: flex;
-      flex-wrap: wrap;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
     }
-    
     nav a {
-      margin-right: 20px;
-      margin-bottom: 10px;
+      margin: 0.5rem 1rem;
+      display: inline-block;
       text-decoration: none;
       font-weight: 600;
-      color: var(--secondary-color);
-      transition: color 0.2s ease;
+      color: #2a6354;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
     }
-    
     nav a:hover {
-      color: var(--primary-color);
-      text-decoration: underline;
+      color: #1d4e40;
+      transform: translateY(-3px);
     }
-    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: linear-gradient(90deg, #5bc0be, #ae8bde, #edae49);
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #3a7462;
+      margin-top: 2.5rem;
+    }
     .pub-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.25rem;
       margin-top: 1.5rem;
     }
-    
     .pub-card {
       opacity: 0.95;
-      transition: opacity 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      animation: gradientShift 12s ease infinite alternate;
-      background: linear-gradient(135deg, var(--card-bg-start), var(--card-bg-end));
-      background-size: 200% 200%;
+      background: linear-gradient(135deg, #e5f5f2, #f6fbf9);
       padding: 1.25rem 1.5rem;
       border-radius: 12px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      position: relative;
+      transition: opacity 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
     .pub-card:hover {
       opacity: 1;
       transform: translateY(-4px);
-      box-shadow: var(--card-hover-shadow);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
     }
-    
     .pub-card p {
       margin: 0;
       font-size: 1rem;
       line-height: 1.6;
     }
-    
-    .pub-card a.download {
-      display: inline-block;
-      margin-top: 0.75rem;
-      background-color: #d6eae3;
-      color: var(--primary-color);
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    
-    .pub-card a.download:hover {
-      background-color: #c0ded5;
-      transform: translateY(-2px);
-    }
-    
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-    
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-    
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-      
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      nav {
-        margin-top: 1rem;
-        width: 100%;
-        justify-content: flex-start;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      h2 {
-        font-size: 1.3rem;
-      }
-    }
-    
-    /* Larger screens */
-    @media (min-width: 768px) {
-      .pub-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    @media (min-width: 1024px) {
-      .pub-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <a href="/jackson-lab/">
-        <img src="assets/logo.png" alt="Jackson Research Lab Logo" class="logo">
-      </a>
-        <nav>
-       <a href="/jackson-lab/">Home</a>
-      <a href="/jackson-lab/about.html">About</a>
-      <a href="/jackson-lab/people.html">People</a>
-      <a href="/jackson-lab/research.html">Research</a>
-      <a href="/jackson-lab/publications.html">Publications</a>
-      <a href="/jackson-lab/join.html">Join</a>
-      <a href="/jackson-lab/contact.html">Contact</a>
+    <div class="header">
+      <img src="./assets/logo.png" alt="Jackson Research Lab Logo" class="logo">
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./people.html">People</a>
+        <a href="./research.html">Research</a>
+        <a href="./publications.html">Publications</a>
+        <a href="./join.html">Join</a>
+        <a href="./contact.html">Contact</a>
       </nav>
-    </header>
-
+    </div>
     <h1>Publications</h1>
 
     <h2>Peer-Reviewed Journal Articles</h2>
@@ -225,7 +168,7 @@
 
     <h2>Book Chapters</h2>
     <div class="pub-grid">
-      <div class="pub-card"><p>Jackson, M., & Huber, J. (2019). "Hear Me": Youth voice in health care. In L. Miller & A. Thompson (Eds.), <em>Narrative Perspectives in Childhood and Youth Studies</em>. UBC Press.</p></div>
+      <div class="pub-card"><p>Jackson, M., & Huber, J. (2019). “Hear Me”: Youth voice in health care. In L. Miller & A. Thompson (Eds.), <em>Narrative Perspectives in Childhood and Youth Studies</em>. UBC Press.</p></div>
       <div class="pub-card"><p>Jackson, M. (2018). Stories from the margins. In C. Lees & M. Gaudet (Eds.), <em>Reimagining Care: Narratives from the Field</em> (pp. 73–94). UBC Press.</p></div>
       <div class="pub-card"><p>Jackson, M., & Angel, C. (2017). Qualitative approaches in adolescent mental health research. In L. Murray & M. Hargreaves (Eds.), <em>Handbook of Nursing Research Methods</em> (2nd ed.). Sage.</p></div>
       <div class="pub-card"><p>Kushner, K., & Jackson, M. (2016). Feminist perspectives in Canadian nursing. In R. Potter (Ed.), <em>Canadian Fundamentals of Nursing</em>. Elsevier Canada.</p></div>
@@ -248,14 +191,9 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Initialize all cards as fade-in elements
+    document.addEventListener('DOMContentLoaded', function () {
       const cards = document.querySelectorAll('.pub-card');
-      cards.forEach(card => {
-        card.classList.add('fade-in');
-      });
-      
-      // Set up intersection observer for fade-in animation
+      cards.forEach(card => card.classList.add('fade-in'));
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -263,11 +201,7 @@
           }
         });
       }, { threshold: 0.1 });
-      
-      // Observe all cards
-      cards.forEach(card => {
-        observer.observe(card);
-      });
+      cards.forEach(card => observer.observe(card));
     });
   </script>
 </body>
