@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Jackson Research Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -9,7 +10,7 @@
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: url('assets/watercolor-soft-bg.png') no-repeat center center / cover;
+      background: url('./assets/watercolor-soft-bg.png') no-repeat center center / cover;
       opacity: 0.12;
       z-index: -1;
     }
@@ -18,7 +19,7 @@
       font-family: 'Inter', sans-serif;
       background-color: #f6fbf9;
       color: #2a6354;
-      padding: 3rem;
+      padding: 1rem 3rem;
     }
     h1 {
       font-family: 'Playfair Display', serif;
@@ -65,21 +66,51 @@
       color: #2a6354;
       text-decoration-color: #9fd1c6;
     }
+    .logo-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .logo-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      nav a {
+        margin-bottom: 0.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
-  <a href="/jackson-lab/"><img src="assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
-  <nav>
-    <a href="/jackson-lab/">Home</a>
-    <a href="/jackson-lab/about.html">About</a>
-    <a href="/jackson-lab/people.html">People</a>
-    <a href="/jackson-lab/research.html">Research</a>
-    <a href="/jackson-lab/publications.html">Publications</a>
-    <a href="/jackson-lab/join.html">Join</a>
-    <a href="/jackson-lab/contact.html">Contact</a>
-  </nav>
-</div>
+  <div class="logo-nav">
+    <a href="./"><img src="./assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
+    <nav>
+      <a href="./">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./people.html">People</a>
+      <a href="./research.html">Research</a>
+      <a href="./publications.html">Publications</a>
+      <a href="./join.html">Join</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </div>
 
   <h1>About the Jackson Research Lab</h1>
 
@@ -99,23 +130,29 @@
 
   <h2>Learn More</h2>
   <p>
-    Explore our <a href="/jackson-lab/research.html">Research</a>, meet the <a href="/jackson-lab/people.html">People</a> behind the lab, or find out how to <a href="/jackson-lab/join.html">Join</a> our projects.
+    Explore our <a href="./research.html">Research</a>, meet the <a href="./people.html">People</a> behind the lab, or find out how to <a href="./join.html">Join</a> our projects.
   </p>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('h2, p').forEach(el => {
-      observer.observe(el);
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Add visible style to elements in viewport on load
+      document.querySelectorAll('h2, p').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }
+        observer.observe(el);
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
