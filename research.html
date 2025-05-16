@@ -36,10 +36,14 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    .logo {
-      height: 70px;
-      filter: drop-shadow(0 4px 6px rgba(42, 99, 84, 0.2));
-    }
+  .logo {
+  height: 80px;
+  filter: drop-shadow(0 6px 12px rgba(42, 99, 84, 0.3));
+  transition: transform 0.4s ease;
+}
+.logo:hover {
+  transform: scale(1.04);
+}
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.75rem;
