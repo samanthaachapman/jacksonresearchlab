@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Jackson Research Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -9,7 +11,7 @@
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: url('assets/watercolor-soft-bg.png') no-repeat center center / cover;
+      background: url('./assets/watercolor-soft-bg.png') no-repeat center center / cover;
       opacity: 0.12;
       z-index: -1;
     }
@@ -18,7 +20,7 @@
       font-family: 'Inter', sans-serif;
       background-color: #f6fbf9;
       color: #2a6354;
-      padding: 3rem;
+      padding: 1rem 3rem;
     }
     h1 {
       font-family: 'Playfair Display', serif;
@@ -39,6 +41,13 @@
     }
     .contact-block {
       margin-top: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .contact-block.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .contact-block p {
       font-size: 1.05rem;
@@ -60,30 +69,79 @@
       color: #2a6354;
       text-decoration-color: #9fd1c6;
     }
+    .logo-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .logo-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      nav a {
+        margin-bottom: 0.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
-  <a href="/jackson-lab/"><img src="assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
-  <nav>
-    <a href="/jackson-lab/">Home</a>
-    <a href="/jackson-lab/about.html">About</a>
-    <a href="/jackson-lab/people.html">People</a>
-    <a href="/jackson-lab/research.html">Research</a>
-    <a href="/jackson-lab/publications.html">Publications</a>
-    <a href="/jackson-lab/join.html">Join</a>
-    <a href="/jackson-lab/contact.html">Contact</a>
-  </nav>
-</div>
-
+  <div class="logo-nav">
+    <a href="./"><img src="./assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
+    <nav>
+      <a href="./">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./people.html">People</a>
+      <a href="./research.html">Research</a>
+      <a href="./publications.html">Publications</a>
+      <a href="./join.html">Join</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </div>
+  
   <h1>Contact</h1>
-  <p>If you’d like to collaborate, learn more about our work, or inquire about joining the lab, please get in touch below.</p>
-
+  <p>If you'd like to collaborate, learn more about our work, or inquire about joining the lab, please get in touch below.</p>
+  
   <div class="contact-block">
     <p><span class="contact-label">Email:</span> <a href="mailto:margotj@ualberta.ca">margotj@ualberta.ca</a></p>
     <p><span class="contact-label">Address:</span> Edmonton Clinic Health Academy (ECHA)<br>
     11405 87 Ave NW, Edmonton, AB T6G 1Z1</p>
     <p><span class="contact-label">Affiliation:</span> Faculty of Nursing, University of Alberta</p>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Add visible animation to contact block
+      const contactBlock = document.querySelector('.contact-block');
+      if (contactBlock.getBoundingClientRect().top < window.innerHeight) {
+        contactBlock.classList.add('visible');
+      }
+      observer.observe(contactBlock);
+    });
+  </script>
 </body>
 </html>
