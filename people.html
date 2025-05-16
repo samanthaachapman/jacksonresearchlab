@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>People | Jackson Research Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -9,7 +11,7 @@
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: url('assets/watercolor-soft-bg.png') no-repeat center center / cover;
+      background: url('./assets/watercolor-soft-bg.png') no-repeat center center / cover;
       opacity: 0.12;
       z-index: -1;
     }
@@ -18,7 +20,7 @@
       font-family: 'Inter', sans-serif;
       background-color: #f6fbf9;
       color: #2a6354;
-      padding: 3rem;
+      padding: 1rem 3rem;
     }
     h1 {
       font-family: 'Playfair Display', serif;
@@ -54,7 +56,8 @@
     }
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);}
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
     .card.visible {
       opacity: 1;
       transform: translateY(0);
@@ -65,69 +68,90 @@
       justify-content: space-between;
       margin-bottom: 2rem;
     }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .logo-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      nav a {
+        margin-bottom: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="logo-nav">
-    <a href="/jackson-lab/"><img src="assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
+    <a href="./"><img src="./assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
     <nav>
-      <a href="/jackson-lab/">Home</a>
-      <a href="/jackson-lab/about.html">About</a>
-      <a href="/jackson-lab/people.html">People</a>
-      <a href="/jackson-lab/research.html">Research</a>
-      <a href="/jackson-lab/publications.html">Publications</a>
-      <a href="/jackson-lab/join.html">Join</a>
-      <a href="/jackson-lab/contact.html">Contact</a>
+      <a href="./">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./people.html">People</a>
+      <a href="./research.html">Research</a>
+      <a href="./publications.html">Publications</a>
+      <a href="./join.html">Join</a>
+      <a href="./contact.html">Contact</a>
     </nav>
   </div>
 
   <h1>People</h1>
 
   <h2>Current Team</h2>
-<div class="team-section">
-  <div class="card">
-    <img src="assets/495601201_1259733629487223_7949295665749126163_n.jpg" alt="Dr. Jackson" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem;">
-    <h3>Dr. Margot Jackson<br>Professor, Faculty of Nursing, University of Alberta<br>BSN (University of Alberta), MA (Gonzaga), PhD (University of Alberta)</h3>
+  <div class="team-section">
+    <div class="card">
+      <img src="./assets/495601201_1259733629487223_7949295665749126163_n.jpg" alt="Dr. Jackson" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem;">
+      <h3>Dr. Margot Jackson<br>Professor, Faculty of Nursing, University of Alberta<br>BSN (University of Alberta), MA (Gonzaga), PhD (University of Alberta)</h3>
+    </div>
+    <!-- Add new team members as they join -->
   </div>
-  <!-- Add new team members as they join -->
-</div>
 
-<h2>Former Students</h2>
-<div class="team-section">
-  <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Postdoctoral Fellows</h3>
-  <div class="card"><h3>Jinny Menon (Postdoctoral Fellow, Nursing – in progress, MacEwan University)</h3></div>
-  <div class="card"><h3>Michelle Lavoie (Postdoctoral Fellow, Nursing – in progress, MacEwan University)</h3></div>
+  <h2>Former Students</h2>
+  <div class="team-section">
+    <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Postdoctoral Fellows</h3>
+    <div class="card"><h3>Jinny Menon (Postdoctoral Fellow, Nursing – in progress, MacEwan University)</h3></div>
+    <div class="card"><h3>Michelle Lavoie (Postdoctoral Fellow, Nursing – in progress, MacEwan University)</h3></div>
 
-  <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">PhD Students</h3>
-  <div class="card"><h3>Erica Samms Hurley (PhD Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Huda Al-Shamali (PhD Psychiatry – in progress, University of Alberta)</h3></div>
-  <div class="card"><h3>Cybele Angel (PhD Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Matthew Reeson (PhD Psychiatry, University of Alberta)</h3></div>
-  <div class="card"><h3>Neelam Punjani (PhD Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Susan Prendergast (PhD Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Alberta Baffour-Awuah (PhD Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Susanah Sumoah (PhD Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Tyler Marshall (PhD Psychiatry, University of Alberta)</h3></div>
+    <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">PhD Students</h3>
+    <div class="card"><h3>Erica Samms Hurley (PhD Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Huda Al-Shamali (PhD Psychiatry – in progress, University of Alberta)</h3></div>
+    <div class="card"><h3>Cybele Angel (PhD Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Matthew Reeson (PhD Psychiatry, University of Alberta)</h3></div>
+    <div class="card"><h3>Neelam Punjani (PhD Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Susan Prendergast (PhD Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Alberta Baffour-Awuah (PhD Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Susanah Sumoah (PhD Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Tyler Marshall (PhD Psychiatry, University of Alberta)</h3></div>
 
-  <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Master's Students</h3>
-  <div class="card"><h3>Albina Karpman (Master of Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Chelsea Mowatt (Master of Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Calli Carrington (Master of Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Hailie Rondeau (Master of Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Nazish Pachani (Master of Nursing, University of Alberta)</h3></div>
-  <div class="card"><h3>Mallory Alcock (Master of Nursing, University of Alberta)</h3></div>
+    <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Master's Students</h3>
+    <div class="card"><h3>Albina Karpman (Master of Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Chelsea Mowatt (Master of Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Calli Carrington (Master of Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Hailie Rondeau (Master of Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Nazish Pachani (Master of Nursing, University of Alberta)</h3></div>
+    <div class="card"><h3>Mallory Alcock (Master of Nursing, University of Alberta)</h3></div>
 
-  <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Honours Students</h3>
-  <div class="card"><h3>Rebecca Sugars (BScN Honours, University of Alberta)</h3></div>
-  <div class="card"><h3>Mansimran Virk (BScN Honours, University of Alberta)</h3></div>
-  <div class="card"><h3>Vidhi Patel (BScN Honours, University of Alberta)</h3></div>
-  <div class="card"><h3>Jenna Toogood (BScN Honours, University of Alberta)</h3></div>
-  <div class="card"><h3>Saleen Shivji (BScN Honours, University of Alberta)</h3></div>
-  <div class="card"><h3>Aaron Louette (BScN Honours, University of Alberta)</h3></div>
-</div>
+    <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Honours Students</h3>
+    <div class="card"><h3>Rebecca Sugars (BScN Honours, University of Alberta)</h3></div>
+    <div class="card"><h3>Mansimran Virk (BScN Honours, University of Alberta)</h3></div>
+    <div class="card"><h3>Vidhi Patel (BScN Honours, University of Alberta)</h3></div>
+    <div class="card"><h3>Jenna Toogood (BScN Honours, University of Alberta)</h3></div>
+    <div class="card"><h3>Saleen Shivji (BScN Honours, University of Alberta)</h3></div>
+    <div class="card"><h3>Aaron Louette (BScN Honours, University of Alberta)</h3></div>
+  </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -137,6 +161,7 @@
       }, { threshold: 0.1 });
 
       document.querySelectorAll('.card').forEach(card => {
+        // Add visible class immediately to cards that are already in viewport
         if (card.getBoundingClientRect().top < window.innerHeight) {
           card.classList.add('visible');
         }
