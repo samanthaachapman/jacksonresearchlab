@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,33 +10,98 @@
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: url('./assets/watercolor-soft-bg.png') no-repeat center center / cover;
-      opacity: 0.12;
+      background: 
+        linear-gradient(120deg, rgba(91, 192, 190, 0.08) 0%, transparent 35%),
+        linear-gradient(240deg, rgba(174, 139, 222, 0.07) 10%, transparent 45%),
+        linear-gradient(0deg, rgba(237, 174, 73, 0.05) 15%, transparent 30%),
+        linear-gradient(180deg, rgba(42, 99, 84, 0.06) 20%, transparent 50%),
+        linear-gradient(300deg, rgba(233, 151, 163, 0.06) 25%, transparent 60%);
       z-index: -1;
     }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f6fbf9;
+      background-color: #f8f9f9;
       color: #2a6354;
-      padding: 1rem 3rem;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(91, 192, 190, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(174, 139, 222, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 75% 85%, rgba(237, 174, 73, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 35% 70%, rgba(233, 151, 163, 0.06) 0%, transparent 50%);
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      height: 80px;
+      filter: drop-shadow(0 6px 12px rgba(42, 99, 84, 0.3));
+      transition: transform 0.4s ease;
+    }
+    .logo:hover {
+      transform: scale(1.04);
     }
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+      font-size: 2.75rem;
+      color: #2a6354;
+      margin: 2rem 0 1.5rem;
+      background: linear-gradient(90deg, #2a6354, #5bc0be, #2a6354);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% auto;
+      animation: gradient 8s ease infinite;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     h2 {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       font-style: italic;
       color: #3a7462;
       margin-top: 3rem;
     }
+    nav {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
     nav a {
-      margin-right: 20px;
+      margin: 0.5rem 1rem;
+      display: inline-block;
       text-decoration: none;
       font-weight: 600;
-      color: #3a7462;
+      color: #2a6354;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
+    }
+    nav a:hover {
+      color: #1d4e40;
+      transform: translateY(-3px);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: linear-gradient(90deg, #5bc0be, #ae8bde, #edae49);
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
     }
     .team-section {
       display: grid;
@@ -62,112 +126,100 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .logo-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
     img {
       max-width: 100%;
       height: auto;
-    }
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-      .logo-nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        margin-top: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-      }
-      nav a {
-        margin-bottom: 0.5rem;
-      }
+      border-radius: 12px;
     }
   </style>
 </head>
 <body>
-  <div class="logo-nav">
-    <a href="./"><img src="./assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
-    <nav>
-      <a href="./">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./people.html">People</a>
-      <a href="./research.html">Research</a>
-      <a href="./publications.html">Publications</a>
-      <a href="./join.html">Join</a>
-      <a href="./contact.html">Contact</a>
-    </nav>
-  </div>
-
-  <h1>People</h1>
-
-  <h2>Current Team</h2>
-  <div class="team-section">
-    <div class="card">
-      <img src="./assets/495601201_1259733629487223_7949295665749126163_n.jpg" alt="Dr. Jackson" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem;">
-      <h3>Dr. Margot Jackson<br>Professor, Faculty of Nursing, University of Alberta<br>BSN (University of Alberta), MA (Gonzaga), PhD (University of Alberta)</h3>
+  <div class="container">
+    <div class="header">
+      <img src="./assets/logo.png" alt="Jackson Research Lab Logo" class="logo">
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./people.html">People</a>
+        <a href="./research.html">Research</a>
+        <a href="./publications.html">Publications</a>
+        <a href="./join.html">Join</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
     </div>
-    <!-- Add new team members as they join -->
+    <h1>People</h1>
+    <h2>Current Team</h2>
+<div class="team-section">
+  <div class="card">
+  <img src="./assets/495601201_1259733629487223_7949295665749126163_n.jpg" alt="Dr. Margot Jackson">
+  <h3>Dr. Margot Jackson</h3>
+  <p>Professor, Faculty of Nursing, University of Alberta</p>
+  <p>BSN (University of Alberta), MA (Gonzaga), PhD (University of Alberta)</p>
+</div>
+</div>
+
+<h2>Lab Members</h2>
+<div class="team-section">
+  <div class="card">
+  <h3>Samantha Chapman</h3>
+  <p>Research Assistant</p>
+  <p>University of Alberta</p>
+</div>
+  <div class="card">
+  <h3>Danielle Shaposhnikov</h3>
+  <p>Individual Study Student</p>
+  <p>University of Alberta</p>
+</div>
+</div>
+</div>
+</div>
+
+<h2>Former Students</h2>
+<div class="team-section">
+  <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Postdoctoral Fellows</h3>
+  <div class="card"><h3>Jinny Menon</h3><p>Postdoctoral Fellow, Nursing – in progress, MacEwan University</p></div>
+  <div class="card"><h3>Michelle Lavoie</h3><p>Postdoctoral Fellow, Nursing – in progress, MacEwan University</p></div>
+
+  <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">PhD Students</h3>
+  <div class="card"><h3>Erica Samms Hurley</h3><p>PhD Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Huda Al-Shamali</h3><p>PhD Psychiatry – in progress, University of Alberta</p></div>
+  <div class="card"><h3>Cybele Angel</h3><p>PhD Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Matthew Reeson</h3><p>PhD Psychiatry, University of Alberta</p></div>
+  <div class="card"><h3>Neelam Punjani</h3><p>PhD Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Susan Prendergast</h3><p>PhD Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Alberta Baffour-Awuah</h3><p>PhD Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Susanah Sumoah</h3><p>PhD Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Tyler Marshall</h3><p>PhD Psychiatry, University of Alberta</p></div>
+
+  <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Master's Students</h3>
+  <div class="card"><h3>Albina Karpman</h3><p>Master of Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Chelsea Mowatt</h3><p>Master of Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Calli Carrington</h3><p>Master of Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Hailie Rondeau</h3><p>Master of Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Nazish Pachani</h3><p>Master of Nursing, University of Alberta</p></div>
+  <div class="card"><h3>Mallory Alcock</h3><p>Master of Nursing, University of Alberta</p></div>
+
+  <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Honours Students</h3>
+  <div class="card"><h3>Rebecca Sugars</h3><p>BScN Honours, University of Alberta</p></div>
+  <div class="card"><h3>Mansimran Virk</h3><p>BScN Honours, University of Alberta</p></div>
+  <div class="card"><h3>Vidhi Patel</h3><p>BScN Honours, University of Alberta</p></div>
+  <div class="card"><h3>Jenna Toogood</h3><p>BScN Honours, University of Alberta</p></div>
+  <div class="card"><h3>Saleen Shivji</h3><p>BScN Honours, University of Alberta</p></div>
+  <div class="card"><h3>Aaron Louette</h3><p>BScN Honours, University of Alberta</p></div>
+</div>
   </div>
-
-  <h2>Former Students</h2>
-  <div class="team-section">
-    <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Postdoctoral Fellows</h3>
-    <div class="card"><h3>Jinny Menon (Postdoctoral Fellow, Nursing – in progress, MacEwan University)</h3></div>
-    <div class="card"><h3>Michelle Lavoie (Postdoctoral Fellow, Nursing – in progress, MacEwan University)</h3></div>
-
-    <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">PhD Students</h3>
-    <div class="card"><h3>Erica Samms Hurley (PhD Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Huda Al-Shamali (PhD Psychiatry – in progress, University of Alberta)</h3></div>
-    <div class="card"><h3>Cybele Angel (PhD Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Matthew Reeson (PhD Psychiatry, University of Alberta)</h3></div>
-    <div class="card"><h3>Neelam Punjani (PhD Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Susan Prendergast (PhD Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Alberta Baffour-Awuah (PhD Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Susanah Sumoah (PhD Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Tyler Marshall (PhD Psychiatry, University of Alberta)</h3></div>
-
-    <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Master's Students</h3>
-    <div class="card"><h3>Albina Karpman (Master of Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Chelsea Mowatt (Master of Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Calli Carrington (Master of Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Hailie Rondeau (Master of Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Nazish Pachani (Master of Nursing, University of Alberta)</h3></div>
-    <div class="card"><h3>Mallory Alcock (Master of Nursing, University of Alberta)</h3></div>
-
-    <h3 style="grid-column: 1 / -1; font-style: italic; font-weight: normal; color: #3a7462;">Honours Students</h3>
-    <div class="card"><h3>Rebecca Sugars (BScN Honours, University of Alberta)</h3></div>
-    <div class="card"><h3>Mansimran Virk (BScN Honours, University of Alberta)</h3></div>
-    <div class="card"><h3>Vidhi Patel (BScN Honours, University of Alberta)</h3></div>
-    <div class="card"><h3>Jenna Toogood (BScN Honours, University of Alberta)</h3></div>
-    <div class="card"><h3>Saleen Shivji (BScN Honours, University of Alberta)</h3></div>
-    <div class="card"><h3>Aaron Louette (BScN Honours, University of Alberta)</h3></div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.card').forEach(card => {
-        // Add visible class immediately to cards that are already in viewport
-        if (card.getBoundingClientRect().top < window.innerHeight) {
-          card.classList.add('visible');
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
-        observer.observe(card);
       });
-    });
-  </script>
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => observer.observe(card));
+  });
+</script>
 </body>
 </html>
