@@ -1,1 +1,94 @@
-<!DOCTYPE html><html><head><title>index.html</title></head><body><h1>Home Page Placeholder</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jackson Research Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: url('assets/A_digital_image_features_a_background_resembling_a.png') center/cover no-repeat fixed;
+      background-color: #e6f2ee;
+      color: #2a6354;
+      scroll-behavior: smooth;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn ease 2s;
+    }
+    .logo {
+      height: 100px;
+      margin-bottom: 1rem;
+      animation: float 4s ease-in-out infinite;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeInSlide 1.5s ease-out forwards 0.3s;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      color: #4a6d62;
+      opacity: 0;
+      animation: fadeInSlide 1.5s ease-out forwards 0.8s;
+    }
+    nav {
+      margin-top: 2rem;
+      opacity: 0;
+      animation: fadeInSlide 1.5s ease-out forwards 1.2s;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      color: #3a7462;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #204e44;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body>
+  <img src="assets/logo.png" alt="Jackson Lab Logo" class="logo">
+  <h1>Jackson Research Lab</h1>
+  <h2>Reflecting Experience. Reimagining Care.</h2>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="people.html">People</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="join.html">Join</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</body>
+</html>
