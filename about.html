@@ -10,128 +10,149 @@
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: url('./assets/watercolor-soft-bg.png') no-repeat center center / cover;
-      opacity: 0.12;
+      background: 
+        linear-gradient(120deg, rgba(91, 192, 190, 0.08) 0%, transparent 35%),
+        linear-gradient(240deg, rgba(174, 139, 222, 0.07) 10%, transparent 45%),
+        linear-gradient(0deg, rgba(237, 174, 73, 0.05) 15%, transparent 30%),
+        linear-gradient(180deg, rgba(42, 99, 84, 0.06) 20%, transparent 50%),
+        linear-gradient(300deg, rgba(233, 151, 163, 0.06) 25%, transparent 60%);
       z-index: -1;
     }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f6fbf9;
+      background-color: #f8f9f9;
       color: #2a6354;
-      padding: 1rem 3rem;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(91, 192, 190, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(174, 139, 222, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 75% 85%, rgba(237, 174, 73, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 35% 70%, rgba(233, 151, 163, 0.06) 0%, transparent 50%);
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      height: 80px;
+      filter: drop-shadow(0 6px 12px rgba(42, 99, 84, 0.3));
+      transition: transform 0.4s ease;
+    }
+    .logo:hover {
+      transform: scale(1.04);
     }
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.75rem;
       color: #2a6354;
+      margin: 2rem 0 1.5rem;
+      background: linear-gradient(90deg, #2a6354, #5bc0be, #2a6354);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% auto;
+      animation: gradient 8s ease infinite;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     h2 {
-      color: #2a6354;
-      text-shadow: none;
+      color: #3a7462;
+      font-size: 1.5rem;
+      font-style: italic;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.8s ease, transform 0.8s ease;
-      font-size: 1.5rem;
-      font-style: italic;
-      color: #3a7462;
       margin-top: 2.5rem;
     }
     p {
       color: #2a6354;
-      background: none;
-      text-shadow: none;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      max-width: 800px;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.8s ease, transform 0.8s ease;
-      max-width: 800px;
-      font-size: 1.1rem;
-      line-height: 1.75;
     }
-    nav a {
-      margin-right: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #3a7462;
-    }
-    p a {
-      color: #3a7462;
-      font-weight: 500;
-      text-decoration: underline;
-      text-decoration-color: #bfe0d9;
-      text-underline-offset: 3px;
-      transition: color 0.3s ease;
-    }
-    p a:hover {
-      color: #2a6354;
-      text-decoration-color: #9fd1c6;
-    }
-    .logo-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    nav {
+      margin-top: 1rem;
       margin-bottom: 2rem;
     }
-    img {
-      max-width: 100%;
-      height: auto;
+    nav a {
+      margin: 0.5rem 1rem;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      color: #2a6354;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
     }
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-      .logo-nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        margin-top: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-      }
-      nav a {
-        margin-bottom: 0.5rem;
-      }
-      h1 {
-        font-size: 2rem;
-      }
+    nav a:hover {
+      color: #1d4e40;
+      transform: translateY(-3px);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: linear-gradient(90deg, #5bc0be, #ae8bde, #edae49);
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
-  <div class="logo-nav">
-    <a href="./"><img src="./assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
-    <nav>
-      <a href="./">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./people.html">People</a>
-      <a href="./research.html">Research</a>
-      <a href="./publications.html">Publications</a>
-      <a href="./join.html">Join</a>
-      <a href="./contact.html">Contact</a>
-    </nav>
+  <div class="container">
+    <div class="header">
+      <img src="./assets/logo.png" alt="Jackson Research Lab Logo" class="logo">
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./people.html">People</a>
+        <a href="./research.html">Research</a>
+        <a href="./publications.html">Publications</a>
+        <a href="./join.html">Join</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <h1>About the Jackson Research Lab</h1>
+
+    <p>
+      The Jackson Research Lab is dedicated to advancing mental health equity through trauma-informed, participatory, and narrative-based inquiry. Grounded in compassion and accountability, our research seeks to reflect lived experience, reimagine care systems, and strengthen the voices of youth and families navigating structural vulnerabilities.
+    </p>
+
+    <h2>Our Approach</h2>
+    <p>
+      Our work draws on qualitative and mixed methods with an emphasis on equity-oriented and relational approaches. We collaborate with community partners, youth, and families to co-create knowledge that supports more accessible and responsive care environments.
+    </p>
+
+    <h2>Led by Dr. Margot Jackson</h2>
+    <p>
+      Dr. Jackson is a professor at the University of Alberta in the Faculty of Nursing. Her work spans youth psychiatric care, Indigenous health, and trauma-informed systems. She brings over a decade of experience working with populations facing structural barriers and guiding interprofessional research teams.
+    </p>
+
+    <h2>Learn More</h2>
+    <p>
+      Explore our <a href="./research.html">Research</a>, meet the <a href="./people.html">People</a> behind the lab, or find out how to <a href="./join.html">Join</a> our projects.
+    </p>
   </div>
-
-  <h1>About the Jackson Research Lab</h1>
-
-  <p>
-    The Jackson Research Lab is dedicated to advancing mental health equity through trauma-informed, participatory, and narrative-based inquiry. Grounded in compassion and accountability, our research seeks to reflect lived experience, reimagine care systems, and strengthen the voices of youth and families navigating structural vulnerabilities.
-  </p>
-
-  <h2>Our Approach</h2>
-  <p>
-    Our work draws on qualitative and mixed methods with an emphasis on equity-oriented and relational approaches. We collaborate with community partners, youth, and families to co-create knowledge that supports more accessible and responsive care environments.
-  </p>
-
-  <h2>Led by Dr. Margot Jackson</h2>
-  <p>
-    Dr. Jackson is a professor at the University of Alberta in the Faculty of Nursing. Her work spans youth psychiatric care, Indigenous health, and trauma-informed systems. She brings over a decade of experience working with populations facing structural barriers and guiding interprofessional research teams.
-  </p>
-
-  <h2>Learn More</h2>
-  <p>
-    Explore our <a href="./research.html">Research</a>, meet the <a href="./people.html">People</a> behind the lab, or find out how to <a href="./join.html">Join</a> our projects.
-  </p>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -144,7 +165,6 @@
         });
       }, { threshold: 0.1 });
 
-      // Add visible style to elements in viewport on load
       document.querySelectorAll('h2, p').forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight) {
           el.style.opacity = '1';
