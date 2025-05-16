@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join the Lab | Jackson Research Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -9,22 +11,61 @@
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: url('assets/watercolor-soft-bg.png') no-repeat center center / cover;
-      opacity: 0.12;
+      background: 
+        linear-gradient(120deg, rgba(91, 192, 190, 0.08) 0%, transparent 35%),
+        linear-gradient(240deg, rgba(174, 139, 222, 0.07) 10%, transparent 45%),
+        linear-gradient(0deg, rgba(237, 174, 73, 0.05) 15%, transparent 30%),
+        linear-gradient(180deg, rgba(42, 99, 84, 0.06) 20%, transparent 50%),
+        linear-gradient(300deg, rgba(233, 151, 163, 0.06) 25%, transparent 60%);
       z-index: -1;
     }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f6fbf9;
+      background-color: #f8f9f9;
       color: #2a6354;
-      padding: 3rem;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(91, 192, 190, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(174, 139, 222, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 75% 85%, rgba(237, 174, 73, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 35% 70%, rgba(233, 151, 163, 0.06) 0%, transparent 50%);
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      height: 70px;
+      filter: drop-shadow(0 4px 6px rgba(42, 99, 84, 0.2));
     }
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.75rem;
       color: #2a6354;
+      margin: 2rem 0 1.5rem;
+      background: linear-gradient(90deg, #2a6354, #5bc0be, #2a6354);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% auto;
+      animation: gradient 8s ease infinite;
     }
+    
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    
     h2 {
       color: #3a7462;
       font-style: italic;
@@ -43,12 +84,38 @@
       transform: translateY(20px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+    
+    nav {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
     nav a {
-      margin-right: 20px;
+      margin: 0.5rem 1rem;
+      display: inline-block;
       text-decoration: none;
       font-weight: 600;
-      color: #3a7462;
+      color: #2a6354;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
     }
+    nav a:hover {
+      color: #1d4e40;
+      transform: translateY(-3px);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: linear-gradient(90deg, #5bc0be, #ae8bde, #edae49);
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    
     p a {
       color: #3a7462;
       font-weight: 500;
@@ -61,63 +128,73 @@
       color: #2a6354;
       text-decoration-color: #9fd1c6;
     }
-      .logo-nav {
+    .header {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
       margin-bottom: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        margin: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="logo-nav">
-  <a href="/jackson-lab/"><img src="assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
-  <nav>
-    <a href="/jackson-lab/">Home</a>
-    <a href="/jackson-lab/about.html">About</a>
-    <a href="/jackson-lab/people.html">People</a>
-    <a href="/jackson-lab/research.html">Research</a>
-    <a href="/jackson-lab/publications.html">Publications</a>
-    <a href="/jackson-lab/join.html">Join</a>
-    <a href="/jackson-lab/contact.html">Contact</a>
-  </nav>
-</div>
-
-  <h1>Join the Lab</h1>
-
-  <p>
-    We welcome undergraduate, graduate, and postdoctoral students who are passionate about youth mental health, equity-based research, and reimagining systems of care.
-  </p>
-
-  <h2>Opportunities</h2>
-  <p>
-    We offer opportunities for independent studies, research assistantships, volunteer roles, and student-led projects. If you're interested in joining the lab, please reach out to Dr. Jackson directly at <a href="mailto:margotj@ualberta.ca">margotj@ualberta.ca</a>.
-  </p>
-
-  <h2>Who We Work With</h2>
-  <p>
-    We collaborate with students from diverse disciplinary backgrounds, including nursing, public health, psychology, sociology, Indigenous studies, and digital health.
-  </p>
-
-  <h2>How to Get Involved</h2>
-  <p>
-    If you’re interested in exploring research or completing a course-based or thesis project with us, email Dr. Jackson with your CV, area of interest, and any relevant experience. We are always open to supporting new ideas that align with the lab’s goals.
-  </p>
-
+  <div class="container">
+    <div class="header">
+      <img src="./assets/logo.png" alt="Jackson Research Lab Logo" class="logo">
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./people.html">People</a>
+        <a href="./research.html">Research</a>
+        <a href="./publications.html">Publications</a>
+        <a href="./join.html">Join</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+    <h1>Join the Lab</h1>
+    <p>
+      We welcome undergraduate, graduate, and postdoctoral students who are passionate about youth mental health, equity-based research, and reimagining systems of care.
+    </p>
+    <h2>Opportunities</h2>
+    <p>
+      We offer opportunities for independent studies, research assistantships, volunteer roles, and student-led projects. If you're interested in joining the lab, please reach out to Dr. Jackson directly at <a href="mailto:margotj@ualberta.ca">margotj@ualberta.ca</a>.
+    </p>
+    <h2>Who We Work With</h2>
+    <p>
+      We collaborate with students from diverse disciplinary backgrounds, including nursing, public health, psychology, sociology, Indigenous studies, and digital health.
+    </p>
+    <h2>How to Get Involved</h2>
+    <p>
+      If you're interested in exploring research or completing a course-based or thesis project with us, email Dr. Jackson with your CV, area of interest, and any relevant experience. We are always open to supporting new ideas that align with the lab's goals.
+    </p>
+  </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
+    // Add visible class with slight delay to create staggered animation
+    setTimeout(() => {
+      document.querySelectorAll('h2, p').forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, index * 200);
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('h2, p').forEach(el => {
-      observer.observe(el);
-    });
+    }, 100);
   });
 </script>
 </body>
