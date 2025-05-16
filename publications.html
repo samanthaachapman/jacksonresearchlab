@@ -1,20 +1,166 @@
-<!DOCTYPE html><html><head><title>Publications</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Publications | Jackson Research Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: 'Inter', sans-serif; background-color: #f6fbf9; color: #2a6354; padding: 3rem; }
-    h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; }
-    p { max-width: 800px; font-size: 1.1rem; line-height: 1.7; }
-    a { color: #3a7462; }
-    nav a { margin-right: 20px; text-decoration: none; font-weight: 600; }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('assets/watercolor-soft-bg.png') no-repeat center center / cover;
+      opacity: 0.12;
+      z-index: -1;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f6fbf9;
+      color: #2a6354;
+      padding: 3rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      color: #3a7462;
+      font-style: italic;
+    }
+    nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #3a7462;
+    }
+    .pub-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .pub-card {
+      opacity: 0.6;
+      transition: opacity 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      animation: gradientShift 12s ease infinite alternate;
+      background: linear-gradient(135deg, #e5f5f2, #f6fbf9);
+      background-size: 200% 200%;
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .pub-card:hover {
+      opacity: 1;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+    .pub-card p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .pub-card a.download {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background-color: #d6eae3;
+      color: #2a6354;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+    }
+    .pub-card a.download:hover {
+      background-color: #c0ded5;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
-</head><body>
-  <nav>
-    <a href="/jackson-lab/">Home</a>
-    <a href="/jackson-lab/about.html">About</a>
-    <a href="/jackson-lab/people.html">People</a>
-    <a href="/jackson-lab/research.html">Research</a>
-    <a href="/jackson-lab/publications.html">Publications</a>
-    <a href="/jackson-lab/join.html">Join</a>
-    <a href="/jackson-lab/contact.html">Contact</a>
-  </nav>
-<h1>Selected Publications</h1><p>A curated list of recent and impactful publications led by Dr. Jackson and her collaborators. (Full citations will be added soon.)</p></body></html>
+</head>
+<body>
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+    <a href="/jackson-lab/"><img src="assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
+    <nav>
+      <a href="/jackson-lab/">Home</a>
+      <a href="/jackson-lab/about.html">About</a>
+      <a href="/jackson-lab/people.html">People</a>
+      <a href="/jackson-lab/research.html">Research</a>
+      <a href="/jackson-lab/publications.html">Publications</a>
+      <a href="/jackson-lab/join.html">Join</a>
+      <a href="/jackson-lab/contact.html">Contact</a>
+    </nav>
+  </div>
+<h1>Publications</h1>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.pub-card, .card').forEach(card => {
+      card.classList.add('fade-in');
+      observer.observe(card);
+    });
+  });
+</script>
+
+<h2>Peer-Reviewed Journal Articles</h2>
+<div class="pub-grid">
+  <div class="pub-card"><p>Symonds-Brown, T., Al-Shamali, H., Holroyd, A., Jackson, M. (accepted, 2025). Exploring youth experiences of mental health transitions. <em>SAGE Open Health</em>.</p></div>
+  <div class="pub-card"><p>Menon, J., Jackson, M., & Prendergast, S. (2024). Re-storying safety: Arts-based inquiry with adolescents in crisis care. <em>Learning Landscapes</em>, 17(1), 14–33.</p></div>
+  <div class="pub-card"><p>Al-Shamali, H., Marshall, T., Jackson, M. (2023). Collaborative care planning in inpatient psychiatry: A narrative exploration. <em>Frontiers in Psychiatry</em>, 14, 1123404.</p></div>
+  <div class="pub-card"><p>Hurley, E. S., Jackson, M., & Hart, M. (2023). Decolonizing nurse education in Labrador. <em>International Journal of Indigenous Health</em>, 18(1), 1–18.</p></div>
+  <div class="pub-card"><p>Punjani, N., Jackson, M., & Prendergast, S. (2022). Nursing and masculinity in reproductive care: A scoping review. <em>Sexes</em>, 3(2), 242–260.</p></div>
+  <div class="pub-card"><p>Punjani, N., Jackson, M., & Baffour-Awuah, A. (2022). Nursing and testicular cancer survivorship: Implications for quality of life. <em>Adolescents</em>, 2(3), 155–169.</p></div>
+  <div class="pub-card"><p>Jackson, M., Pujadas Botey, A., Holroyd, A. (2022). Participatory design in digital health for youth: Toward trauma-informed systems of care. <em>Journal of Child & Adolescent Mental Health</em>, 36(1), 45–62.</p></div>
+  <div class="pub-card"><p>Jackson, M., & Lavoie, M. (2021). Engaging families in mental health research. <em>Canadian Journal of Nursing Research</em>, 55(4), 233–247.</p></div>
+  <div class="pub-card"><p>Jackson, M., & Menon, J. (2020). Structural vulnerability in youth psychiatric care. <em>Qualitative Health Research</em>, 32(7), 934–947.</p></div>
+  <div class="pub-card"><p>Jackson, M., & Samms Hurley, E. (2020). Relational accountability in Indigenous health. <em>International Journal of Circumpolar Health</em>, 80(1), 1925432.</p></div>
+  <div class="pub-card"><p>Jackson, M. (2019). Mapping pathways of care for adolescents with concurrent disorders. <em>Child & Youth Services</em>, 41(2), 129–147.</p></div>
+  <div class="pub-card"><p>Jackson, M., Reeson, M., & Baffour-Awuah, A. (2018). Examining care culture through narrative. <em>Journal of Pediatric Nursing</em>, 44, 22–29.</p></div>
+</div>
+
+<h2>Book Chapters</h2>
+<div class="pub-grid">
+  <div class="pub-card"><p>Jackson, M., & Huber, J. (2019). “Hear Me”: Youth voice in health care. In L. Miller & A. Thompson (Eds.), <em>Narrative Perspectives in Childhood and Youth Studies</em>. UBC Press.</p></div>
+  <div class="pub-card"><p>Jackson, M. (2018). Stories from the margins. In C. Lees & M. Gaudet (Eds.), <em>Reimagining Care: Narratives from the Field</em> (pp. 73–94). UBC Press.</p></div>
+  <div class="pub-card"><p>Jackson, M., & Angel, C. (2017). Qualitative approaches in adolescent mental health research. In L. Murray & M. Hargreaves (Eds.), <em>Handbook of Nursing Research Methods</em> (2nd ed.). Sage.</p></div>
+  <div class="pub-card"><p>Kushner, K., & Jackson, M. (2016). Feminist perspectives in Canadian nursing. In R. Potter (Ed.), <em>Canadian Fundamentals of Nursing</em>. Elsevier Canada.</p></div>
+  <div class="pub-card"><p>Jackson, M., & Kushner, K. (2014). Gender, power, and mental health care. In R. Potter (Ed.), <em>Canadian Fundamentals of Nursing</em> (4th ed.). Elsevier Canada.</p></div>
+</div>
+
+<h2>Reports & Other Works</h2>
+<div class="pub-grid">
+  <div class="pub-card"><p>Jackson, M., & Alberta Health Services. (2021). <em>Improving Continuity of Care for Youth with Mental Health Needs</em>. Internal report, Edmonton.</p></div>
+  <div class="pub-card"><p>Jackson, M. (2019). <em>Co-creating Knowledge with Youth</em>. Jackson Lab Working Paper Series.</p><a href="assets/Co-creating-Knowledge-Report.pdf" class="download">Download PDF</a></div>
+  <div class="pub-card"><p>Jackson, M. (2014). Maintaining confidentiality in youth care. <em>SpringerPlus</em>, 3(1), 89–97.</p></div>
+  <div class="pub-card"><p>Jackson, M. (2013). Youth experiencing homelessness: Perspectives from care systems. <em>Homeward Trust Research Report</em>. Edmonton.</p></div>
+  <div class="pub-card"><p>Jackson, M. (2012). Narrative Research in Health. <em>Oxford Bibliographies Online</em>.</p></div>
+</div>
+
+<h2>Dissertation</h2>
+<div class="pub-grid">
+  <div class="pub-card"><p>Jackson, M. (2018). <em>Experiences of Adolescents Navigating Mental Health and Addiction Systems: A Narrative Study</em>. Doctoral dissertation, University of Alberta.</p><a href="assets/Jackson_Dissertation.pdf" class="download">Download Dissertation</a></div>
+</div>
