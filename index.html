@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jackson Research Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -9,63 +11,156 @@
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: url('assets/watercolor-soft-bg.png') no-repeat center center / cover;
-      opacity: 0.12;
+      background: 
+        linear-gradient(120deg, rgba(91, 192, 190, 0.08) 0%, transparent 35%),
+        linear-gradient(240deg, rgba(174, 139, 222, 0.07) 10%, transparent 45%),
+        linear-gradient(0deg, rgba(237, 174, 73, 0.05) 15%, transparent 30%),
+        linear-gradient(180deg, rgba(42, 99, 84, 0.06) 20%, transparent 50%),
+        linear-gradient(300deg, rgba(233, 151, 163, 0.06) 25%, transparent 60%);
       z-index: -1;
     }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f6fbf9;
+      background-color: #f8f9f9;
       color: #2a6354;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(91, 192, 190, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(174, 139, 222, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 75% 85%, rgba(237, 174, 73, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 35% 70%, rgba(233, 151, 163, 0.06) 0%, transparent 50%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       text-align: center;
-      padding: 3rem;
+      padding: 1.5rem;
+      box-sizing: border-box;
     }
-    img {
+    .logo {
       height: 70px;
       margin-bottom: 1.5rem;
+      max-width: 100%;
+      filter: drop-shadow(0 4px 6px rgba(42, 99, 84, 0.2));
     }
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.75rem;
       margin: 0.5rem 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      background: linear-gradient(90deg, #2a6354, #5bc0be, #2a6354);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% auto;
+      animation: gradient 8s ease infinite;
+    }
+    
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
     p {
       font-size: 1.25rem;
       font-style: italic;
       color: #3a7462;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition-delay: 0.2s;
     }
     nav {
       margin-top: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition-delay: 0.4s;
     }
     nav a {
-      margin: 0 1rem;
+      margin: 0.5rem 1rem;
+      display: inline-block;
       text-decoration: none;
       font-weight: 600;
-      color: #3a7462;
-      transition: color 0.3s ease;
+      color: #2a6354;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
     }
     nav a:hover {
-      color: #2a6354;
+      color: #1d4e40;
+      transform: translateY(-3px);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: linear-gradient(90deg, #5bc0be, #ae8bde, #edae49);
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        margin: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <a href="/jacksonresearchlab/"><img src="assets/logo.png" alt="Jackson Research Lab Logo"></a>
-  <h1>Jackson Research Lab</h1>
-  <p>Reflecting Experience. Reimagining Care.</p>
-  <nav>
-    <a href="about.html">About</a>
-    <a href="people.html">People</a>
-    <a href="research.html">Research</a>
-    <a href="publications.html">Publications</a>
-    <a href="join.html">Join</a>
-    <a href="contact.html">Contact</a>
+  <img src="./assets/logo.png" alt="Jackson Research Lab Logo" class="logo">
+  <h1 class="animate">Jackson Research Lab</h1>
+  <p class="animate">Reflecting Experience. Reimagining Care.</p>
+  <nav class="animate">
+    <a href="./about.html">About</a>
+    <a href="./people.html">People</a>
+    <a href="./research.html">Research</a>
+    <a href="./publications.html">Publications</a>
+    <a href="./join.html">Join</a>
+    <a href="./contact.html">Contact</a>
   </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add visible class with slight delay to create staggered animation
+      setTimeout(() => {
+        document.querySelectorAll('.animate').forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, index * 200);
+        });
+      }, 100);
+    });
+  </script>
 </body>
 </html>
