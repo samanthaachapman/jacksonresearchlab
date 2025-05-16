@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research | Jackson Research Lab</title>
+  <title>Contact | Jackson Research Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body::before {
@@ -52,38 +52,11 @@
       background-size: 200% auto;
       animation: gradient 8s ease infinite;
     }
-    
     @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    
-    h2 {
-      color: #3a7462;
-      font-style: italic;
-      font-size: 1.5rem;
-      margin-top: 2.5rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    p {
-      color: #2a6354;
-      font-size: 1.1rem;
-      line-height: 1.75;
-      max-width: 800px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    
     nav {
       margin-top: 1rem;
       margin-bottom: 2rem;
@@ -114,29 +87,27 @@
     nav a:hover::after {
       width: 100%;
     }
-    
     .header {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-bottom: 2rem;
     }
-    
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      nav a {
-        margin: 0.5rem;
-      }
+    .contact-block {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .contact-block.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .contact-label {
+      font-weight: 600;
+      color: #3a7462;
     }
   </style>
 </head>
@@ -154,33 +125,29 @@
         <a href="./contact.html">Contact</a>
       </nav>
     </div>
-  <h1>Contact</h1>
-  <p>If you'd like to collaborate, learn more about our work, or inquire about joining the lab, please get in touch below.</p>
-  
-  <div class="contact-block">
-    <p><span class="contact-label">Email:</span> <a href="mailto:margotj@ualberta.ca">margotj@ualberta.ca</a></p>
-    <p><span class="contact-label">Address:</span> Edmonton Clinic Health Academy (ECHA)<br>
-    11405 87 Ave NW, Edmonton, AB T6G 1Z1</p>
-    <p><span class="contact-label">Affiliation:</span> Faculty of Nursing, University of Alberta</p>
+    <h1>Contact</h1>
+    <p>If you'd like to collaborate, learn more about our work, or inquire about joining the lab, please get in touch below.</p>
+
+    <div class="contact-block">
+      <p><span class="contact-label">Email:</span> <a href="mailto:margotj@ualberta.ca">margotj@ualberta.ca</a></p>
+      <p><span class="contact-label">Address:</span> Edmonton Clinic Health Academy (ECHA)<br>
+      11405 87 Ave NW, Edmonton, AB T6G 1Z1</p>
+      <p><span class="contact-label">Affiliation:</span> Faculty of Nursing, University of Alberta</p>
+    </div>
   </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      // Add visible animation to contact block
-      const contactBlock = document.querySelector('.contact-block');
-      if (contactBlock.getBoundingClientRect().top < window.innerHeight) {
-        contactBlock.classList.add('visible');
-      }
-      observer.observe(contactBlock);
-    });
-  </script>
+    const block = document.querySelector('.contact-block');
+    if (block) observer.observe(block);
+  });
+</script>
 </body>
 </html>
