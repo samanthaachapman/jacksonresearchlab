@@ -1,20 +1,110 @@
-<!DOCTYPE html><html><head><title>Research</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Research | Jackson Research Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: 'Inter', sans-serif; background-color: #f6fbf9; color: #2a6354; padding: 3rem; }
-    h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; }
-    p { max-width: 800px; font-size: 1.1rem; line-height: 1.7; }
-    a { color: #3a7462; }
-    nav a { margin-right: 20px; text-decoration: none; font-weight: 600; }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('assets/watercolor-soft-bg.png') no-repeat center center / cover;
+      opacity: 0.12;
+      z-index: -1;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f6fbf9;
+      color: #2a6354;
+      padding: 3rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #3a7462;
+      margin-top: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #3a7462;
+    }
+    .logo-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
   </style>
-</head><body>
-  <nav>
-    <a href="/jackson-lab/">Home</a>
-    <a href="/jackson-lab/about.html">About</a>
-    <a href="/jackson-lab/people.html">People</a>
-    <a href="/jackson-lab/research.html">Research</a>
-    <a href="/jackson-lab/publications.html">Publications</a>
-    <a href="/jackson-lab/join.html">Join</a>
-    <a href="/jackson-lab/contact.html">Contact</a>
-  </nav>
-<h1>Research Focus</h1><p>Our lab focuses on the intersections of lived experience, mental health systems, and care. This includes qualitative, community-engaged, and arts-based research methods.</p></body></html>
+</head>
+<body>
+  <div class="logo-nav">
+    <a href="/jackson-lab/"><img src="assets/logo.png" alt="Jackson Research Lab Logo" style="height: 50px;"></a>
+    <nav>
+      <a href="/jackson-lab/">Home</a>
+      <a href="/jackson-lab/about.html">About</a>
+      <a href="/jackson-lab/people.html">People</a>
+      <a href="/jackson-lab/research.html">Research</a>
+      <a href="/jackson-lab/publications.html">Publications</a>
+      <a href="/jackson-lab/join.html">Join</a>
+      <a href="/jackson-lab/contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <h1>Research Focus</h1>
+  <p>
+    The Jackson Research Lab centers on advancing mental health equity through trauma-informed, participatory, and relational methodologies. Our work seeks to reflect lived experiences and reimagine systems of care for youth and families navigating structural vulnerabilities.
+  </p>
+
+  <h2>Key Areas of Focus</h2>
+  <p>
+    We investigate the lived realities of young people engaged with mental health systems, with special attention to transitions in care, trauma-informed practice, and culturally safe services. Our research is grounded in narrative and arts-based methods that amplify youth voice and co-create meaningful change.
+  </p>
+
+  <h2>Methodologies</h2>
+  <p>
+    Our team applies qualitative, mixed-methods, and community-based participatory designs. We integrate feminist, Indigenous, and critical theoretical lenses in order to support ethical, equity-oriented, and compassionate inquiry.
+  </p>
+
+  <h2>Collaboration</h2>
+  <p>
+    We work with academic and community partners across disciplines and sectors including nursing, public health, social work, education, and digital health. Our partnerships prioritize reciprocity, inclusion, and long-term systems impact.
+  </p>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('h2, p').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+</body>
+</html>
